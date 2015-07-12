@@ -1,0 +1,161 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+	<Button name="ALUF_PetFrame" frameStrata="LOW" toplevel="true" movable="true" inherits="SecureUnitButtonTemplate, SecureHandlerBaseTemplate"  parent="UIParent">
+		<Size>
+			<AbsDimension x="148" y="69" />
+		</Size>
+		
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset>
+					<AbsDimension x="19" y="-225" />
+				</Offset>
+			</Anchor>
+		</Anchors>
+		
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentFlash" file="Interface\AddOns\ArenaLiveUnitFrames3\Textures\PetFrameFlash" alphaMode="ADD" hidden="true">
+					<Size>
+						<AbsDimension x="158" y="59" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="-1" y="-8" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0.1875" right="0.80859375" top="0.03125" bottom="0.953125"/>
+				</Texture>
+				<Texture name="$parentBackground">
+					<Size>
+						<AbsDimension x="148" y="52" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-10" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="0.5"/>
+				</Texture>
+			</Layer>
+		</Layers>
+		
+		<Frames>
+			<!-- We need to nest the frame so many times because of the FrameLevel. -->
+			<Frame setAllPoints="true">
+				<Frames>
+					<Frame setAllPoints="true">
+						<Frames>
+							<Frame setAllPoints="true">
+								<Frames>
+									<Frame setAllPoints="true">
+										<Layers>
+											<Layer level="BACKGROUND">
+												<Texture name="$parentBorder" file="Interface\AddOns\ArenaLiveUnitFrames3\Textures\PetFrame">
+													<Size>
+														<AbsDimension x="155" y="60" />
+													</Size>
+													<Anchors>
+														<Anchor point="TOPLEFT">
+															<Offset>
+																<AbsDimension x="-2" y="-8" />
+															</Offset>
+														</Anchor>
+													</Anchors>
+													<TexCoords left="0.1953125" right="0.8125" top="0.0625" bottom="0.984375"/>
+												</Texture>
+												<FontString name="$parentName" inherits="ArenaLiveFont_NameSmall">
+													<Size>
+														<!-- I don't define X here, because the width of the frame needs to be dynamic to always show the PvPIcon 5 pixels away from the end of the Name -->
+														<AbsDimension y="10" />
+													</Size>
+												
+													<Anchors>
+														<Anchor point="TOPLEFT">
+															<Offset>
+																<AbsDimension x="5" y="0" />
+															</Offset>										
+														</Anchor>
+													</Anchors>
+												</FontString>
+												<FontString name="$parentLevelText" inherits="ArenaLiveFont_LevelSmall">
+													<Anchors>
+														<Anchor point="RIGHT" relativeTo="$parentName" relativePoint="LEFT" />
+													</Anchors>
+												</FontString>
+											</Layer>
+										</Layers>
+									</Frame>
+								</Frames>
+							</Frame>
+						</Frames>
+					</Frame>
+				</Frames>
+			</Frame>
+			<Frame name="$parentPortrait" inherits="ArenaLive_PortraitTemplate">
+				<Size>
+					<AbsDimension x="48" y="48" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="2" y="-12" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Frames>
+					<Frame name="$parentCCIndicator" inherits="ArenaLive_CCIndicatorTemplate" setAllPoints="true" />
+				</Frames>
+			</Frame>
+			<StatusBar name="$parentHealthBar">
+				<Size>
+					<AbsDimension x="96" y="32" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentPortrait" relativePoint="TOPRIGHT" />
+				</Anchors>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0" g="1.0" b="0"/>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture name="$parentAbsorbBar" inherits="ArenaLive_AbsorbBarTemplate" />
+					</Layer>
+					<Layer level="OVERLAY" textureSubLevel="1">
+						<Texture name="$parentHealPredictionBar" inherits="ArenaLive_HealPredictionBar" />
+					</Layer>
+					<Layer level="OVERLAY" textureSubLevel="2">
+						<Texture name="$parentAbsorbBarOverlay" inherits="ArenaLive_AbsorbBarOverlayTemplate" />
+						<Texture name="$parentAbsorbBarFullHPIndicator" inherits="ArenaLive_AbsorbFullHPIndicator" />					
+					</Layer>
+					<Layer level="OVERLAY" textureSubLevel="3">
+						<FontString name="$parentText" inherits="ArenaLiveFont_StatusBarTextSmall" setAllPoints="true" />
+					</Layer>
+				</Layers>
+			</StatusBar>
+			<StatusBar name="$parentPowerBar">
+				<Size>
+					<AbsDimension x="96" y="16" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentHealthBar" relativePoint="BOTTOMLEFT" />
+				</Anchors>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0" g="0" b="1.0"/>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="ArenaLiveFont_StatusBarTextSmall" setAllPoints="true" />
+					</Layer>
+				</Layers>
+			</StatusBar>
+			<Frame name="$parentAuraFrame" inherits="ArenaLive_AuraFrameTemplate" />
+		</Frames>
+	</Button>
+
+	
+	<Script file="PetFrame.lua"/>
+</Ui>

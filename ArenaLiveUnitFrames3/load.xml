@@ -1,0 +1,22 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	
+	<Script File="localisation.lua" />
+	<Script File="localisation_deDE.lua" />
+	<Script File="localisation_esES.lua" />
+	<Script File="localisation_koKR.lua" />
+	
+	<Script File="load.lua" />
+	<Script File="Positioning.lua" />
+	<Include File="CastBarTemplates.xml" />
+	<Include File="PlayerFrame.xml" />
+	<Include File="PetFrame.xml" />
+	<Include File="TargetFrame.xml" />
+	<Include File="FocusFrame.xml" />
+	<Include File="TargetTargetFrames.xml" />
+	<Include File="PartyFrames.xml" />
+	<Include File="ArenaEnemyFrames.xml" />
+	<Include File="Options\Main.xml" />
+	<Include File="Options\UnitFrames.xml" />
+	<Include File="Options\Profiles.xml" />
+</Ui>

@@ -1,0 +1,94 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+	<Script File="localisation.lua" />
+	<Script File="localisation_deDE.lua" />
+	<Script File="localisation_esES.lua" />
+	
+	<Include File="Fonts.xml" />
+	<Frame name="ArenaLive" setAllPoints="true" parent="UIParent">
+		<Frames>
+			<Button name="$parentVerticalLine" frameStrata="TOOLTIP">
+				<Size>
+					<AbsDimension x="2" y="1" />
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER" />
+				</Anchors>
+				<Layers>
+					<Layer level="Background">
+						<Texture name="$parentTexure">
+							<Color r="0" g="1" b="0"/>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Button>
+			<Button name="$parentHorizontalLine" frameStrata="TOOLTIP">
+				<Size>
+					<AbsDimension x="1" y="2" />
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER" />
+				</Anchors>
+				<Layers>
+					<Layer level="Background">
+						<Texture name="$parentTexure">
+							<Color r="0" g="1" b="0"/>
+						</Texture>
+					</Layer>
+				</Layers>
+			</Button>
+		</Frames>
+	</Frame>
+
+	<!-- LOAD ARENALIVE CORE -->
+	<Script File="Spells.lua" />
+	<Script File="Core.lua" />
+	<Include File="CoreOption.xml" />
+	<Script File="CoreEvent.lua" />
+	<Script File="CoreHandler.lua" />
+	<Script File="IconGroupHeader.lua" />
+	<Script File="PositioningGrid.lua" />
+	
+	<!-- LOAD HANDLER CLASSES -->
+	<Script File="HandlerClasses\IndicatorIcon.lua" />
+	<Script File="HandlerClasses\StatusBarText.lua" />	
+	
+	<!-- LOAD HANDLERS -->
+	<Include File="Profiles.xml" />
+	<Include File="Cooldown.xml" />
+	<Script File="UnitFrame.lua" />
+	<Script File="FrameMover.lua" />
+	<Script File="Border.lua" />
+	<Script File="NameText.lua" />
+	<Script File="HealthBarText.lua" />
+	<Include File="HealthBar.xml" />
+	<Script File="PartyHeader.lua" />
+	<Script File="PowerBarText.lua" />
+	<Script File="PowerBar.lua" />
+	<Script File="StatusBarText.lua" />
+	<Include File="ArenaHeader.xml" />
+	<Include File="Icon.xml" />
+	<Include File="Portrait.xml" />
+	<Include File="CCIndicator.xml" />
+	<Script File="CastBar.lua" />
+	<Include File="CastHistory.xml" />
+	<Script File="ComboFrame.lua" />
+	<Include File="Aura.xml" />
+	<Include File="DRTracker.xml" />
+	<Script File="LevelText.lua" />
+	<Script File="LeaderIcon.lua" />
+	<Script File="MasterLooterIcon.lua" />
+	<Script File="MultiGroupIcon.lua" />
+	<Script File="PetBattleIcon.lua" />
+	<Script File="PvPIcon.lua" />
+	<Script File="QuestIcon.lua" />
+	<Script File="RaidIcon.lua" />
+	<Script File="ReadyCheck.lua" />
+	<Script File="RoleIcon.lua" />
+	<Script File="StatusIcon.lua" />
+	<Script File="TargetIndicator.lua" />
+	<Script File="ThreatIndicator.lua" />
+	<Script File="VoiceFrame.lua" />
+	
+</Ui>

@@ -1,0 +1,24 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	
+	<Script File="Cooldown.lua" />
+	
+	<Cooldown name="ArenaLive_CooldownTemplate" setAllPoints="true" hidden="true" virtual="true">
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="$parentText" inherits="ArenaLiveFont_CooldownText" parentKey="text"/>
+			</Layer>
+		</Layers>
+		<SwipeTexture>
+			<Color r="0" g="0" b="0" a="0.8"/>
+		</SwipeTexture>
+		<EdgeTexture file="Interface\Cooldown\edge"/>
+	</Cooldown>
+	
+	<Cooldown name="ArenaLive_AuraCooldownTemplate" setAllPoints="true" reverse="true" hidden="true" virtual="true">
+		<SwipeTexture>
+			<Color r="0" g="0" b="0" a="0.8"/>
+		</SwipeTexture>
+		<EdgeTexture file="Interface\Cooldown\edge"/>
+	</Cooldown>
+</Ui>

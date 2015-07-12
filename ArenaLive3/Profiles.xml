@@ -1,0 +1,26 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+	<Frame name="ArenaLive_CreateProfileFrameTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="250" y="24" />
+		</Size>
+		<Frames>
+			<EditBox name="$parentEditBox" inherits="ArenaLive_OptionsEditBoxTemplate">
+				<Size>
+					<AbsDimension x="200" y="24" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" />
+				</Anchors>
+			</EditBox>
+			<Button name="$parentButton" inherits="OptionsButtonTemplate">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentEditBox" relativePoint="RIGHT" />
+				</Anchors>
+			</Button>
+		</Frames>
+	</Frame>
+
+	<Script File="Profiles.lua" />
+</Ui>

@@ -1,0 +1,14 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	
+	<Button name="ALUF_FocusFrame" inherits="ALUF_TargetFrameTemplate">
+		<Anchors>
+			<Anchor point="TOPLEFT">
+				<Offset>
+					<AbsDimension x="250" y="-138" />
+				</Offset>
+			</Anchor>
+		</Anchors>
+	</Button>
+	<Script file="FocusFrame.lua"/>
+</Ui>

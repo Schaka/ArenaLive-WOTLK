@@ -1,0 +1,22 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+	<Script File="Portrait.lua" />
+
+	<Frame name="ArenaLive_PortraitTemplate" virtual="true">
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentBackground">
+					<Color r="0" g="0" b="0" a="1" />
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentTexture" file="Interface\Icons\INV_Misc_QuestionMark" />
+			</Layer>
+		</Layers>
+		<Frames>
+			<PlayerModel name="$parentThreeD" setAllPoints="true" enableMouse="false" />
+		</Frames>
+	</Frame>
+
+</Ui>

@@ -1,0 +1,230 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+	<!-- Option ColourPicker start: --> 
+	<Button name="ArenaLive_ColourPickerTemplate" virtual="true">
+		<Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="10"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="10"/>
+			</TileSize>
+		</Backdrop>
+		<Size>
+			<AbsDimension x="20" y="20" />
+		</Size>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parentColour" parentKey="colour">
+					<Size>
+						<AbsDimension x="16" y="16" />
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER" />
+					</Anchors>
+					<Color r="1" g="0" b="0" />
+				</Texture>
+				<FontString name="$parentTitle" inherits="GameFontNormal" parentKey="title">
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="5" y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+	</Button>
+	
+	<!-- Option EditBox with title on top start: --> 
+	<EditBox name="ArenaLive_OptionsEditBoxTemplate" font="ChatFontNormal" autofocus="false" virtual="true">
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="10"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="10"/>
+			</TileSize>
+			<BackgroundInsets>
+				<AbsInset left="2" right="2" top="2" bottom="2"/>
+			</BackgroundInsets>
+		</Backdrop>	
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="$parentTitle" inherits="GameFontNormalSmall" parentKey="title">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativePoint="TOPLEFT">
+							<Offset>
+								<AbsDimension x="5" y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<TextInsets left="6" right="6" />
+		<Scripts>
+			<OnEnterPressed>
+				self:ClearFocus();
+			</OnEnterPressed>
+			<OnEscapePressed>
+				self:ClearFocus();
+			</OnEscapePressed>
+		</Scripts>
+	</EditBox>	
+	
+	<!-- Option EditBox with title on the right side start: --> 
+	<EditBox name="ArenaLive_OptionsEditBoxSmallTemplate" font="ChatFontNormal" autofocus="false" virtual="true">
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="10"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="10"/>
+			</TileSize>
+			<BackgroundInsets>
+				<AbsInset left="2" right="2" top="2" bottom="2"/>
+			</BackgroundInsets>
+		</Backdrop>	
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="$parentTitle" inherits="GameFontNormalSmall" parentKey="title">
+					<Anchors>
+						<Anchor point="LEFT" relativePoint="RIGHT">
+							<Offset>
+								<AbsDimension x="5" y="0" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<TextInsets left="6" right="6" />
+		<Scripts>
+			<OnEnterPressed>
+				self:ClearFocus();
+			</OnEnterPressed>
+			<OnEscapePressed>
+				self:ClearFocus();
+			</OnEscapePressed>
+		</Scripts>
+	</EditBox>
+
+	<!-- Option DropDown template Start: -->
+	<Button name="ArenaLive_OptionsDropDownTemplate" inherits="UIDropDownMenuTemplate" virtual="true">
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitle" inherits="GameFontNormalSmall" parentKey="title">
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="25" y="10" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>		
+		</Layers>
+	</Button>
+
+	<!-- Option DropDown with large title font on the left side Start: -->
+	<Button name="ArenaLive_OptionsDropDownLargeTitleTemplate" inherits="UIDropDownMenuTemplate" virtual="true">
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitle" inherits="GameFontNormal" parentKey="title">
+					<Anchors>
+						<Anchor point="RIGHT" relativePoint="LEFT">
+							<Offset>
+								<AbsDimension x="-5" y="2" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>		
+		</Layers>
+	</Button>	
+	
+	<!-- Option Slider template Start: -->
+	<Slider name="ArenaLive_OptionsSliderTemplate" orientation="HORIZONTAL" enableMouse="true" virtual="true">
+		<HitRectInsets>
+			<AbsInset left="0" right="0" top="-10" bottom="-10"/>
+		</HitRectInsets>
+		<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\Buttons\UI-SliderBar-Border" tile="true">
+			<EdgeSize>
+				<AbsValue val="8"/>
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="8"/>
+			</TileSize>
+			<BackgroundInsets>
+				<AbsInset left="3" right="3" top="6" bottom="6"/>
+			</BackgroundInsets>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentTitle" inherits="GameFontNormalSmall" parentKey="title">
+					<Anchors>
+						<Anchor point="BOTTOM" relativePoint="TOP"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentMin" inherits="GameFontHighlightSmall" parentKey="minText">
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="BOTTOMLEFT">
+							<Offset>
+								<AbsDimension x="0" y="-5"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentMax" inherits="GameFontHighlightSmall" parentKey="maxText">
+					<Anchors>
+						<Anchor point="CENTER" relativePoint="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="0" y="-5"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<ThumbTexture name="$parentThumb" file="Interface\Buttons\UI-SliderBar-Button-Horizontal">
+			<Size>
+				<AbsDimension x="32" y="32"/>
+			</Size>
+		</ThumbTexture>
+		<Frames>
+			<EditBox name="$parentCurrent" font="GameFontHighlightSmall" numeric="true" autofocus="false" parentKey="curBox">
+				<Anchors>
+					<Anchor point="CENTER" relativePoint="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="-6" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+					<EdgeSize>
+						<AbsValue val="5"/>
+					</EdgeSize>
+					<TileSize>
+						<AbsValue val="5"/>
+					</TileSize>
+					<BackgroundInsets>
+						<AbsInset left="1" right="1" top="1" bottom="1"/>
+					</BackgroundInsets>
+				</Backdrop>	
+				<Scripts>
+					<OnEnterPressed>
+						self:ClearFocus();
+					</OnEnterPressed>
+					<OnEscapePressed>
+						self:ClearFocus();
+					</OnEscapePressed>
+				</Scripts>
+			</EditBox>	
+		</Frames>
+	</Slider>
+	
+	<Script File="CoreOption.lua" />
+</Ui>

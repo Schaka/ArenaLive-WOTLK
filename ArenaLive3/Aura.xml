@@ -1,0 +1,111 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	
+	<Script File="Aura.lua" />
+	
+	<Frame name="ArenaLive_BuffTemplate"  enableMouse="true" virtual="true" >
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="$parenttexture" setAllPoints="true" parentKey="texture"/>
+			</Layer>
+			<Layer level="ARTWORK">
+				<FontString name="$parentCount" inherits="NumberFontNormalSmall" justifyH="RIGHT" parentKey="count">
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="3" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentStealable" file="Interface\TargetingFrame\UI-TargetingFrame-Stealable" alphaMode="ADD" parentKey="stealable" >
+					<Anchors>
+						<Anchor point="CENTER" />
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Cooldown name="$parentCooldown" inherits="ArenaLive_AuraCooldownTemplate" parentKey="cooldown" />
+		</Frames>
+		<Scripts>
+			<OnUpdate>
+				if ( GameTooltip:IsOwned(self) ) then
+					GameTooltip:SetUnitBuff(self.unit, self:GetID(), self.filter);
+				end
+			</OnUpdate>
+			<OnEnter>
+				GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT", 15, -25);
+				GameTooltip:SetUnitBuff(self.unit, self:GetID(), self.filter);
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>
+	</Frame>
+	
+	<Frame name="ArenaLive_DebuffTemplate" enableMouse="true" virtual="true">
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentTexture" setAllPoints="true" parentKey="texture" />
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentBorder" file="Interface\Buttons\UI-Debuff-Overlays" parentKey="border" >
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="-1" y="1"/>
+						</Anchor>
+						<Anchor point="BOTTOMRIGHT">
+							<Offset x="1" y="-1"/>
+						</Anchor>
+					</Anchors>
+					<TexCoords left="0.296875" right="0.5703125" top="0" bottom="0.515625"/>
+				</Texture>	
+				<FontString name="$parentCount" inherits="NumberFontNormalSmall" justifyH="RIGHT" parentKey="count" >
+					<Anchors>
+						<Anchor point="BOTTOMRIGHT">
+							<Offset>
+								<AbsDimension x="5" y="0"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Cooldown name="$parentCooldown" inherits="ArenaLive_AuraCooldownTemplate" parentKey="cooldown" />
+		</Frames>
+		<Scripts>
+			<OnUpdate>
+				if ( GameTooltip:IsOwned(self) ) then
+					GameTooltip:SetUnitDebuff(self.unit, self:GetID(), self.filter);
+				end
+			</OnUpdate>
+			<OnEnter>
+				GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT", 15, -25);
+				GameTooltip:SetUnitDebuff(self.unit, self:GetID(), self.filter);
+			</OnEnter>
+			<OnLeave>
+				GameTooltip:Hide();
+			</OnLeave>
+		</Scripts>		
+	</Frame>
+	
+	<Frame name="ArenaLive_AuraFrameTemplate" virtual="true">
+		<Frames>
+			<Frame name="$parentBuffFrame">
+				<Anchors>
+					<Anchor point="TOPLEFT" />
+				</Anchors>
+			</Frame>
+			<Frame name="$parentDebuffFrame">
+				<Anchors>
+					<Anchor point="TOPLEFT" />
+				</Anchors>
+			</Frame>
+		</Frames>
+	</Frame>	
+	
+</Ui>
