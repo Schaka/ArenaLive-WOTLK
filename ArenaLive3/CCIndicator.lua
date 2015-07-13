@@ -139,7 +139,7 @@ function CCIndicator:UpdateCache (event, unit)
 	
 	-- Check Buffs:
 	for i = 1, MAX_BUFFS, 1 do
-		name, _, texture, _, _, duration, expires, _, _, _, spellID = UnitBuff(unit, i);
+		name, rank, texture, count, debuffType, duration, expires, unitCaster, isStealable, shouldConsolidate, spellID = UnitBuff(unit, i);
 		if ( not expires ) then -- spellID == 8178
 			-- Grounding Totem:
 			expires = 0;
@@ -175,7 +175,7 @@ function CCIndicator:UpdateCache (event, unit)
 
 	-- Check Debuffs:
 	for i = 1, MAX_DEBUFFS, 1 do
-		name, _, texture, _, _, duration, expires, _, _, _, spellID = UnitDebuff(unit, i);
+		name, rank, texture, count, debuffType, duration, expires, unitCaster, isStealable, shouldConsolidate, spellID = UnitDebuff(unit, i);
 		if ( not expires ) then -- spellID == 81261 or spellID == 88611
 			-- Solar Beam and Smoke Bomb:
 			expires = 0;

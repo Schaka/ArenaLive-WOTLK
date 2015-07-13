@@ -24,6 +24,7 @@ Icon:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED");
 Icon:RegisterEvent("UNIT_FACTION");
 Icon:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 Icon:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED_SPELL_DISPEL");
+Icon:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED_SPELL_CAST_SUCCESS");
 Icon:RegisterEvent("PLAYER_ENTERING_WORLD");
 
 -- Table of Texture coordinates for the race/gender icons.
@@ -616,13 +617,18 @@ function Icon:OnEvent(event, ...)
 		-- Update cooldown cache:
 		Icon:UpdateCooldownCache(event, spellID, unit, guid);
 	elseif ( event == "COMBAT_LOG_EVENT_UNFILTERED_SPELL_DISPEL" ) then
-		local guid = select(4, ...);
-		local spellID = select(15, ...);
+		local guid = select(3, ...);
+		local spellID = select(12, ...);
 		
 		-- Update cooldown cache:
 		Icon:UpdateCooldownCache(event, spellID, unit, guid);
 		
-
+	elseif ( event == "COMBAT_LOG_EVENT_UNFILTERED_SPELL_CAST_SUCCESS" ) then
+		local guid = select(3, ...);
+		local spellID = select(9, ...);
+		
+		-- Update cooldown cache:
+		Icon:UpdateCooldownCache(event, spellID, unit, guid);
 	elseif ( event == "COMBAT_LOG_EVENT_UNFILTERED_SPELL_INTERRUPT" ) then
 		--[[ Bugfix for Ticket 41: Mages get their Counter Spell cooldown reduced by 4 sec. whenever they successfully interrupt someone,
 			 if they have the 2 piece set bonus of the PvP-Set. So always reduce the cooldown on a successful counter spell by 4 sec to make

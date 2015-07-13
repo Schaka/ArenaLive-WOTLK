@@ -481,8 +481,8 @@ function DRTracker:OnEvent(event, ...)
 		end
 	else
 		local sourceGUID = select(3, ...);
-		local destGUID = select(8, ...);	
-		local spellID = select(12, ...);
+		local destGUID = select(6, ...);	
+		local spellID = select(9, ...);
 
 		if ( not ArenaLive.spellDB.DiminishingReturns[spellID] or destGUID == sourceGUID ) then
 			return;

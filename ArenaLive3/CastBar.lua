@@ -301,7 +301,8 @@ function CastBar:StopCast(castBar, event, lineID)
 end
 
 function CastBar:LockoutCast(castBar, school)
-	castBar.text:SetText(string.format(L["Lockout! (%s)"], GetSchoolString(school)));
+	--castBar.text:SetText(string.format(L["Lockout! (%s)"], GetSchoolString(school)));
+	castBar.text:SetText(string.format(L["Lockout! (%s)"], school));
 	CastBar:FinishCast(castBar, false);
 end
 
@@ -393,8 +394,9 @@ function CastBar:OnEvent(event, ...)
 			end
 		end
 	elseif ( event == "COMBAT_LOG_EVENT_UNFILTERED_SPELL_INTERRUPT" ) then
-		local guid = select(8, ...); -- DestGUID
-		local school = select(17, ...); -- SpellSchool of the kicked spell
+	
+		local guid = select(6, ...); -- DestGUID
+		local school = select(14, ...); -- SpellSchool of the kicked spell
 		if ( ArenaLive:IsGUIDInUnitFrameCache(guid) ) then
 			for id in ArenaLive:GetAffectedUnitFramesByGUID(guid) do
 				local unitFrame = ArenaLive:GetUnitFrameByID(id);

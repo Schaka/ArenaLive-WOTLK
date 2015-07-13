@@ -126,7 +126,7 @@ ArenaLive.spellDB = {
 				[1833] = "stun",			-- Cheap Shot
 				[1330] = "silence",			-- Garrote - Silence
 				[2094] = "crowdControl", 	-- Blind
-				[38764] = "crowdControl", 	-- Gouge
+				[1776] = "crowdControl", 	-- Gouge
 				[51724] = "crowdControl", 	-- Sap
 				
 				-- Shaman

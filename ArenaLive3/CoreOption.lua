@@ -772,7 +772,7 @@ end
 function ArenaLive:DisableAllOptionFrames()
 	for frame in pairs(optionFrames) do
 		if ( not frame.IsEnabled ) then
-			print(frame:GetName());
+			--print(frame:GetName());
 		end
 		if ( frame:IsVisible() and frame:IsEnabled() ) then
 			frame:EnableMouse(false);
