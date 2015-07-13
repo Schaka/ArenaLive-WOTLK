@@ -3,7 +3,7 @@ local addonName = ...;
 function ALUF_FocusFrame:Initialise()
 
 		local prefix = self:GetName();
-		ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "FocusFrame", "target", "togglemenu");
+		ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "FocusFrame", "target", "menu");
 		
 		-- Register Frame constituents:
 		self:RegisterHandler(_G[prefix.."Border"], "Border");

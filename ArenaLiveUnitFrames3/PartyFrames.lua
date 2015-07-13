@@ -105,7 +105,7 @@ local function initFunc(frame)
 	ArenaLiveUnitFrames:UpdateCastBarDisplay(frame);
 	
 	-- Initialise pet frame:
-	ArenaLive:ConstructHandlerObject(petFrame, "UnitFrame", addonName, "PartyPetFrame", "target", "togglemenu");
+	ArenaLive:ConstructHandlerObject(petFrame, "UnitFrame", addonName, "PartyPetFrame", "target", "menu");
 	petFrame:RegisterHandler(_G[petPrefix.."Border"], "Border");
 	petFrame:RegisterHandler(_G[petPrefix.."HealthBar"], "HealthBar", nil, nil, nil, nil, nil, nil, nil, addonName, "PartyPetFrame");
 	petFrame:RegisterHandler(_G[petPrefix.."HealthBarText"], "HealthBarText", nil, petFrame);
@@ -114,7 +114,7 @@ local function initFunc(frame)
 	petFrame:RegisterHandler(_G[petPrefix.."TargetIndicator"], "TargetIndicator");	
 	
 	-- Initialise target frame:
-	ArenaLive:ConstructHandlerObject(targetFrame, "UnitFrame", addonName, "PartyTargetFrame", "target", "togglemenu");	
+	ArenaLive:ConstructHandlerObject(targetFrame, "UnitFrame", addonName, "PartyTargetFrame", "target", "menu");	
 	targetFrame:RegisterHandler(_G[targetPrefix.."Border"], "Border");
 	targetFrame:RegisterHandler(_G[targetPrefix.."HealthBar"], "HealthBar", nil, nil, nil, nil, nil, nil, nil, addonName, "PartyTargetFrame");
 	targetFrame:RegisterHandler(_G[targetPrefix.."PowerBar"], "PowerBar", nil, addonName, "PartyTargetFrame");

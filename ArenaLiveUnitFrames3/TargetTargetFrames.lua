@@ -90,7 +90,7 @@ end
 
 function ALUF_TargetTargetFrame:Initialise()
 		local prefix = self:GetName();
-		ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "TargetTargetFrame", "target", "togglemenu");
+		ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "TargetTargetFrame", "target", "menu");
 		
 		-- Register Frame constituents:
 		self:RegisterHandler(_G[prefix.."Border"], "Border");
@@ -116,7 +116,7 @@ end
 
 function ALUF_FocusTargetFrame:Initialise()
 		local prefix = self:GetName();
-		ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "FocusTargetFrame", "target", "togglemenu");
+		ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "FocusTargetFrame", "target", "menu");
 		
 		-- Register Frame constituents:
 		self:RegisterHandler(_G[prefix.."Border"], "Border");

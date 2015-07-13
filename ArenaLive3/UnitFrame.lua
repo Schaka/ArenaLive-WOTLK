@@ -525,6 +525,7 @@ end
 		alwaysVisible (boolean): If true, the frame will allways be visible, even if it has no unit.
 		hasHeader (boolean): This is to inform the function if the frame is part of a frame group (e.g. Party frames, Arena Frames etc.) or not. DO NOT CONFUSE THIS WITH the frameGroup arg.
 ]]--
+
 function UnitFrame:ConstructObject(frame, addonName, frameGroup, leftClick, rightClick, menuFunc, alwaysVisible, hasHeader)
 	
 	if ( InCombatLockdown() ) then
@@ -542,9 +543,24 @@ function UnitFrame:ConstructObject(frame, addonName, frameGroup, leftClick, righ
 	-- Set up clicking scripts:
 	frame:RegisterForClicks("LeftButtonUp", "RightButtonUp");
 	frame:SetAttribute("*type1", leftClick or "target");
-	frame:SetAttribute("*type2", rightClick or "togglemenu");
+	frame:SetAttribute("*type2", rightClick or "menu");
 	
 	if ( leftClick == "menu" or rightClick == "menu" ) then
+		menuFunc = function()
+			local u = frame:GetAttribute("unit")
+			ToggleDropDownMenu(1, nil, _G[firstToUpper(u).."FrameDropDown"], frame, 60, 10);
+			
+			--PET FRAMES???
+			if u == "party1" then
+				ToggleDropDownMenu(1, nil, PartyMemberFrame1DropDown, frame, 60, 10);
+			elseif u == "party2" then
+				ToggleDropDownMenu(1, nil, PartyMemberFrame2DropDown, frame, 60, 10);
+			elseif u == "party3" then
+				ToggleDropDownMenu(1, nil, PartyMemberFrame3DropDown, frame, 60, 10);
+			elseif u == "party4" then
+				ToggleDropDownMenu(1, nil, PartyMemberFrame4DropDown, frame, 60, 10);
+			end
+		end
 		frame.menu = menuFunc;
 	end
 	

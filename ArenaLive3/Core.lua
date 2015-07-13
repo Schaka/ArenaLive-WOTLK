@@ -6,6 +6,14 @@ This function set builds the base for the core of ArenaLive. These functions wil
 The so called "handlers", which are defined in their respective files, control the way how certain frame types behave for any ArenaLive addons.
 ]]--
 
+function log(msg)
+	DEFAULT_CHAT_FRAME:AddMessage(msg);
+end
+
+function firstToUpper(str)
+    return (str:gsub("^%l", string.upper))
+end
+
 -- Set up some base values:
 local ARENALIVE_CHAT_MSG_PREFIX = "|cFFFF0000ArenaLive:|r ";
 local ARENALIVE_DEBUG_MSG_PREFIX = "|cFFFF0000ArenaLive Debugger:|r ";

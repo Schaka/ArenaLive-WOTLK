@@ -4,7 +4,7 @@ local L = ArenaLiveUnitFrames.L;
 function ALUF_PlayerFrame:Initialise()
 
 		local prefix = self:GetName();
-		ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "PlayerFrame", "target", "togglemenu");
+		ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "PlayerFrame", "target", "menu");
 		
 		-- Register Frame constituents:
 		self:RegisterHandler(_G[prefix.."Border"], "Border");

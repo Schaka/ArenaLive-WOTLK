@@ -4,7 +4,7 @@ local L = ArenaLiveUnitFrames.L;
 function ALUF_PetFrame:Initialise()
 
 	local prefix = self:GetName();
-	ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "PetFrame", "target", "togglemenu");
+	ArenaLive:ConstructHandlerObject(self, "UnitFrame", addonName, "PetFrame", "target", "menu");
 	
 	-- Register Frame constituents:
 	self:RegisterHandler(_G[prefix.."Border"], "Border");
