@@ -86,7 +86,7 @@ local onAttributeChangedSnippet = [[
    frameName = "Frame"..i;
    frame = self:GetFrameRef(frameName);
    local numMembers = self:GetAttribute("state-partymembers");
-   if ( i <= numMembers ) then
+   if ( i <= tonumber(numMembers) ) then
     frame:Show();
    else
     frame:Hide();
@@ -273,7 +273,7 @@ function PartyHeader:ConstructObject(header, template, initFunc, addonName, fram
 		if ( i == 1 ) then
 			frame = CreateFrame("Button", headerName.."PlayerFrame", header, template);
 			header["PlayerFrame"] = frame;
-			ArenaLive:ConstructHandlerObject(frame, "UnitFrame", addonName, frameGroup, "target", "togglemenu", nil, nil, true);
+			ArenaLive:ConstructHandlerObject(frame, "UnitFrame", addonName, frameGroup, "target", "menu", nil, nil, true);
 			header.initFunc(frame);
 			header:SetFrameRef("PlayerFrame", frame);
 		end
@@ -281,7 +281,7 @@ function PartyHeader:ConstructObject(header, template, initFunc, addonName, fram
 		frame = CreateFrame("Button", headerName.."Frame"..i, header, template);
 		header["Frame"..i] = frame;
 		frame:SetID(i);
-		ArenaLive:ConstructHandlerObject(frame, "UnitFrame", addonName, frameGroup, "target", "togglemenu", nil, nil, true);
+		ArenaLive:ConstructHandlerObject(frame, "UnitFrame", addonName, frameGroup, "target", "menu", nil, nil, true);
 		header.initFunc(frame);
 		header:SetFrameRef("Frame"..i, frame);
 	end
@@ -516,7 +516,6 @@ function PartyHeaderClass:Update()
 				frame = self["PlayerFrame"];
 				frame:Update();
 			end
-			
 			frame = self["Frame"..i];
 			frame:Update();
 		end
@@ -530,7 +529,7 @@ function PartyHeaderClass:UpdateRange()
 		if ( UnitRangeCache[unit] ) then
 			frame:SetAlpha(1);
 		else
-			frame:SetAlpha(0.6);
+			frame:SetAlpha(0.75);
 		end
 	end
 end
@@ -573,6 +572,12 @@ function PartyHeaderClass:UpdateGUIDs()
 end
 
 function PartyHeaderClass:OnAttributeChanged(name, value)
+	for i=1,4 do
+		local tempFrame = _G["PartyMemberFrame"..i];
+		if ( tempFrame and tempFrame:IsShown() ) then
+			tempFrame:Hide();
+		end
+	end
 	if ( name == "al_framelock" ) then
 		if ( value ) then
 			self:EnableMouse(false);

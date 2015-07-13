@@ -548,8 +548,7 @@ function UnitFrame:ConstructObject(frame, addonName, frameGroup, leftClick, righ
 	if ( leftClick == "menu" or rightClick == "menu" ) then
 		menuFunc = function()
 			local u = frame:GetAttribute("unit")
-			ToggleDropDownMenu(1, nil, _G[firstToUpper(u).."FrameDropDown"], frame, 60, 10);
-			
+						
 			--PET FRAMES???
 			if u == "party1" then
 				ToggleDropDownMenu(1, nil, PartyMemberFrame1DropDown, frame, 60, 10);
@@ -559,6 +558,8 @@ function UnitFrame:ConstructObject(frame, addonName, frameGroup, leftClick, righ
 				ToggleDropDownMenu(1, nil, PartyMemberFrame3DropDown, frame, 60, 10);
 			elseif u == "party4" then
 				ToggleDropDownMenu(1, nil, PartyMemberFrame4DropDown, frame, 60, 10);
+			else
+				ToggleDropDownMenu(1, nil, _G[firstToUpper(u).."FrameDropDown"], frame, 60, 10);
 			end
 		end
 		frame.menu = menuFunc;

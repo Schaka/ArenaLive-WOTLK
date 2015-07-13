@@ -60,38 +60,34 @@ function ALUF_PlayerFrame:OnEnable()
 	-- For now we use the Blizzard AltPowerBars and attach them to AL's PlayerFrame:
 	local _, class = UnitClass("player");	
 	if ( class == "WARLOCK" ) then
-		WarlockPowerFrame:SetParent(ALUF_PlayerFrame);
+		--[[WarlockPowerFrame:SetParent(ALUF_PlayerFrame);
 		WarlockPowerFrame:ClearAllPoints();
-		WarlockPowerFrame:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 48, -2 );
+		WarlockPowerFrame:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 48, -2 );]]
 	elseif ( class == "SHAMAN" ) then
 		TotemFrame:SetParent(ALUF_PlayerFrame);
 		TotemFrame:ClearAllPoints();
 		TotemFrame:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 0, 4 );
 	elseif ( class == "DRUID" ) then
-		EclipseBarFrame:SetParent(ALUF_PlayerFrame);
+		--[[EclipseBarFrame:SetParent(ALUF_PlayerFrame);
 		EclipseBarFrame:ClearAllPoints();
 		EclipseBarFrame:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 50, 3 );
 		-- Resto Druid Mushroom Display
 		TotemFrame:SetParent(ALUF_PlayerFrame);
 		TotemFrame:ClearAllPoints();
 		TotemFrame:SetPoint("TOPLEFT", ALUF_PlayerFrame, "BOTTOMLEFT", 0, 0 );
-		hooksecurefunc("TotemFrame_Update", UpdateTotemFramePosition);
+		hooksecurefunc("TotemFrame_Update", UpdateTotemFramePosition);]] 
 	elseif ( class == "PALADIN" ) then
-		PaladinPowerBar:SetParent(ALUF_PlayerFrame);
+		--[[PaladinPowerBar:SetParent(ALUF_PlayerFrame);
 		PaladinPowerBar:ClearAllPoints();
-		PaladinPowerBar:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 0, 2 );
+		PaladinPowerBar:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 0, 2 );]]
 	elseif ( class == "DEATHKNIGHT" ) then
 		RuneFrame:SetParent(ALUF_PlayerFrame);
 		RuneFrame:ClearAllPoints();
 		RuneFrame:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 52, -7 );
 	elseif ( class == "PRIEST" ) then
-		PriestBarFrame:SetParent(ALUF_PlayerFrame);
+		--[[PriestBarFrame:SetParent(ALUF_PlayerFrame);
 		PriestBarFrame:ClearAllPoints();
-		PriestBarFrame:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 50, 0 );
-	elseif ( class == "MONK" ) then
-		MonkHarmonyBar:SetParent(ALUF_PlayerFrame);
-		MonkHarmonyBar:ClearAllPoints();
-		MonkHarmonyBar:SetPoint("TOPRIGHT", ALUF_PlayerFrame, "BOTTOMRIGHT", -68, 15 );
+		PriestBarFrame:SetPoint("TOP", ALUF_PlayerFrame, "BOTTOM", 50, 0 );]]
 	end
 end
 
