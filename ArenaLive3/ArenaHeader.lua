@@ -76,13 +76,13 @@ local onAttributeChangedSnippet = [[
    local frame = self:GetFrameRef(frameName);
    frame:Show();
   end
- elseif ( self:GetAttribute("numopponents") > 0 ) then
+ elseif ( tonumber(self:GetAttribute("numopponents")) > 0 ) then
   local opponents = self:GetAttribute("numopponents");
   self:Show();
   for i = 1, 5 do
    local frameName = "Frame"..i;
    local frame = self:GetFrameRef(frameName);
-   if ( i <= opponents ) then
+   if ( i <= tonumber(opponents) ) then
     frame:Show();
    else
     frame:Hide();

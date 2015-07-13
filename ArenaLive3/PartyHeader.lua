@@ -572,12 +572,6 @@ function PartyHeaderClass:UpdateGUIDs()
 end
 
 function PartyHeaderClass:OnAttributeChanged(name, value)
-	for i=1,4 do
-		local tempFrame = _G["PartyMemberFrame"..i];
-		if ( tempFrame and tempFrame:IsShown() ) then
-			tempFrame:Hide();
-		end
-	end
 	if ( name == "al_framelock" ) then
 		if ( value ) then
 			self:EnableMouse(false);

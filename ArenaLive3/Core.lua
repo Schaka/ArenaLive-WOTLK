@@ -14,6 +14,14 @@ function firstToUpper(str)
     return (str:gsub("^%l", string.upper))
 end
 
+LoadAddOn("Blizzard_ArenaUI")
+for i=1,5 do
+	_G["ArenaEnemyFrame"..i].Show = function () end;
+end
+for i=1,4 do
+	_G["PartyMemberFrame"..i].Show = function () end;
+end	
+
 -- Set up some base values:
 local ARENALIVE_CHAT_MSG_PREFIX = "|cFFFF0000ArenaLive:|r ";
 local ARENALIVE_DEBUG_MSG_PREFIX = "|cFFFF0000ArenaLive Debugger:|r ";
