@@ -468,8 +468,8 @@ ArenaLive.spellDB = {
 		},
 		["Interrupts"] = {
 			["DEATHKNIGHT"] = { 47528, 15 },	-- Mind Freeze
-			["DRUID"] = { 16979, 15 }, 		-- Skull Bash
-			["HUNTER"] = { 42671, 24 },		-- Counter Shot
+			["DRUID"] = { 16979, 15 }, 			-- Feral Charge
+			["HUNTER"] = { 42671, 24 },			-- Silencing Shot
 			["MAGE"] = { 2139, 24 },			-- Counter Spell
 			["ROGUE"] = { 1766, 15 }, 			-- Kick
 			["SHAMAN"] = { 57994, 12 },			-- Wind Shear

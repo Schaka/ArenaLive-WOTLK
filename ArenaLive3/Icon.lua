@@ -500,15 +500,20 @@ end
 ]]--
 function Icon:UpdateCooldownCache (event, spellID, unit, guid)
 	local wasCacheUpdated;
-	if ( event == "UNIT_SPELLCAST_SUCCEEDED" and unit ) then
+	if ( (event == "UNIT_SPELLCAST_SUCCEEDED" and unit) or ( event == "COMBAT_LOG_EVENT_UNFILTERED_SPELL_CAST_SUCCESS" ) ) then
 		local isPlayer = UnitIsPlayer(unit);
-		if ( not isPlayer ) then
+		if ( not isPlayer and unit ) then
 			return;
 		end
-	
-		guid = UnitGUID(unit);
-		local _, class = UnitClass(unit);
-		local _, race = UnitRace(unit);
+		
+		local class, race
+		if ( unit ) then
+			guid = UnitGUID(unit);
+			_, class = UnitClass(unit);
+			_, race = UnitRace(unit);
+		else
+			_, class, _, race = GetPlayerInfoByGUID(guid);
+		end
 		
 		-- Get Trinket spellID and -CD:
 		local trinketID, trinketCD = unpack(ArenaLive.spellDB.Trinket);
@@ -570,7 +575,6 @@ function Icon:UpdateCooldownCache (event, spellID, unit, guid)
 		if ( spellID == dispelID ) then
 			wasCacheUpdated = Icon:AddCooldown(guid, spellID, dispelCD);
 		end
-	
 	end
 	
 	-- Update affected frames if the cache was updated:
@@ -609,9 +613,9 @@ function Icon:OnEvent(event, ...)
 			end
 		end
 	elseif ( event == "UNIT_SPELLCAST_SUCCEEDED" ) then
-		local unit = select(1, ...);
+		local unit, spell, rank, lineID, spellID = ...
 		unit = ArenaLive:GetPetOwnerUnit(unit);
-		local spellID = select(5, ...);
+		
 		local guid = UnitGUID(unit);
 
 		-- Update cooldown cache:
@@ -626,7 +630,6 @@ function Icon:OnEvent(event, ...)
 	elseif ( event == "COMBAT_LOG_EVENT_UNFILTERED_SPELL_CAST_SUCCESS" ) then
 		local guid = select(3, ...);
 		local spellID = select(9, ...);
-		
 		-- Update cooldown cache:
 		Icon:UpdateCooldownCache(event, spellID, unit, guid);
 	elseif ( event == "COMBAT_LOG_EVENT_UNFILTERED_SPELL_INTERRUPT" ) then
