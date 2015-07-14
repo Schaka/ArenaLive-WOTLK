@@ -77,7 +77,8 @@ function CooldownClass:Reset ()
 	Cooldown.activeCDs[self] = nil;
 	self.remaining = 0;
 	self.elapsed = 0;
-	self:SetCooldown(0, 0);
+	--self:SetCooldown(0, 0);
+	self:Hide();
 	
 	if ( self.text ) then
 		self.text:SetText("");
