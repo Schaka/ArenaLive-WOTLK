@@ -3,4 +3,4 @@ Backport of ArenaLive Unitframes for World of Warcraft: Wrath of the Lich King 3
 
 - prettify default DR position
 - add all correct DR groups
-- make sure icons track cooldowns correctly
+- add list of allowed buffs for arena frames
