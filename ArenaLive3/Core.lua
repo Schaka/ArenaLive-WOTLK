@@ -17,9 +17,11 @@ end
 LoadAddOn("Blizzard_ArenaUI")
 for i=1,5 do
 	_G["ArenaEnemyFrame"..i].Show = function () end;
+	_G["ArenaEnemyFrame"..i.."PetFrame"].Show = function () end;
 end
 for i=1,4 do
 	_G["PartyMemberFrame"..i].Show = function () end;
+	_G["PartyMemberFrame"..i.."PetFrame"].Show = function () end;
 end	
 
 -- Set up some base values:
