@@ -131,7 +131,7 @@ function CastBar:SetTestModeValues(unitFrame)
 		
 		local spellID = self.testValues[unitFrame.test];
 		local name, _, icon, castingTime = GetSpellInfo(spellID);
-		local value = math.random(0, castingTime or 5);
+		local value = math.random(0, 5);
 
 		if ( castBar.text ) then
 			castBar.text:SetFontObject("GameFontHighlight");
