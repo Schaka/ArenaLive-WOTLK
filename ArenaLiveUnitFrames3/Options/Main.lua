@@ -29,6 +29,12 @@ function ALUF_Options:Initialise()
 	
 end
 
+SLASH_ALIVE1, SLASH_ALIVE2 = "/alive", "/arenalive";
+function SlashCmdList.ALIVE(msg, editbox)
+	InterfaceOptionsFrame_OpenToCategory(ALUF_Options)
+end
+
+
 optionFrames = {
 	["FrameLock"] = {
 		["name"] = prefix.."FrameLock",
