@@ -34,6 +34,9 @@ PowerBar:RegisterEvent("UNIT_MAXMANA");
 PowerBar:RegisterEvent("UNIT_ENERGY");
 PowerBar:RegisterEvent("UNIT_MAXENERGY");
 
+PowerBar:RegisterEvent("UNIT_RAGE");
+PowerBar:RegisterEvent("UNIT_MAXRAGE");
+
 PowerBar:RegisterEvent("UNIT_POWER");
 PowerBar:RegisterEvent("UNIT_MAXPOWER");
 
@@ -209,7 +212,7 @@ end
 ]]--
 function PowerBar:OnEvent (event, ...)
 	local unit = ...;
-	if ( event == "UNIT_POWER" or event == "UNIT_MANA" or event == "UNIT_ENERGY" ) then
+	if ( event == "UNIT_POWER" or event == "UNIT_MANA" or event == "UNIT_ENERGY" or event == "UNIT_RAGE" ) then
 		-- Filter units that are updated by the OnUpdate script:
 		if ( not frequentUpdates[unit] ) then
 			if ( ArenaLive:IsUnitInUnitFrameCache(unit) ) then
@@ -224,7 +227,7 @@ function PowerBar:OnEvent (event, ...)
 				end
 			end
 		end
-	elseif ( event == "UNIT_MAXPOWER" or event == "UNIT_MAXMANA" or event == "UNIT_MAXENERGY" or event == "UNIT_DISPLAYPOWER" ) then
+	elseif ( event == "UNIT_MAXPOWER" or event == "UNIT_MAXMANA" or event == "UNIT_MAXENERGY" or event == "UNIT_MAXRAGE" or event == "UNIT_DISPLAYPOWER" ) then
 		if ( ArenaLive:IsUnitInUnitFrameCache(unit) ) then
 			for id in ArenaLive:GetAffectedUnitFramesByUnit(unit) do
 				local unitFrame = ArenaLive:GetUnitFrameByID(id);
